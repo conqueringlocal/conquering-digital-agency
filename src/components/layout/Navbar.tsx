@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -34,7 +33,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // Close mobile menu when route changes
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
@@ -50,9 +48,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <div className="text-2xl font-bold text-primary">
-            <span className="text-secondary">Conquering</span> Local
-          </div>
+          <img 
+            src="/lovable-uploads/65e06714-2cc1-4b7f-bc0c-9338e24c4077.png" 
+            alt="Conquering Local Logo" 
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
