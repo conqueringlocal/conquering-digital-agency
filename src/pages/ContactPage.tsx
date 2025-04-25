@@ -1,49 +1,41 @@
-
 import React, { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/shared/Button";
-
 const ContactPage = () => {
-  const { toast } = useToast();
-  
+  const {
+    toast
+  } = useToast();
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animated");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animated");
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    document.querySelectorAll(".animate-on-scroll").forEach(el => {
       observer.observe(el);
     });
-
     return () => {
-      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+      document.querySelectorAll(".animate-on-scroll").forEach(el => {
         observer.unobserve(el);
       });
     };
   }, []);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real implementation, this would send the form data to a backend
     toast({
       title: "Form Submitted",
-      description: "We'll get back to you as soon as possible!",
+      description: "We'll get back to you as soon as possible!"
     });
   };
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Header */}
@@ -72,38 +64,21 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                      <input
-                        id="name"
-                        type="text"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                      />
+                      <input id="name" type="text" className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                      <input
-                        id="email"
-                        type="email"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                      />
+                      <input id="email" type="email" className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                      />
+                      <input id="phone" type="tel" className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" />
                     </div>
                     <div>
                       <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
-                      <select
-                        id="service"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
-                      >
+                      <select id="service" className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white">
                         <option value="">Select a Service</option>
                         <option value="website">Website Design</option>
                         <option value="automation">Marketing Automation</option>
@@ -116,12 +91,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                      required
-                    ></textarea>
+                    <textarea id="message" rows={5} className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                   </div>
                   <div>
                     <Button type="submit" size="lg" className="w-full md:w-auto">Send Message</Button>
@@ -143,7 +113,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg">Phone</h3>
-                        <p className="text-gray-600">(555) 123-4567</p>
+                        <p className="text-gray-600">(864) 602-6474</p>
                       </div>
                     </div>
 
@@ -248,8 +218,6 @@ const ContactPage = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ContactPage;
