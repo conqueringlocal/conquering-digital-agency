@@ -126,7 +126,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg">Email</h3>
-                        <p className="text-gray-600">hello@conqueringlocal.com</p>
+                        <p className="text-gray-600">info@conqueringlocal.io</p>
                       </div>
                     </div>
 
